@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+
+@keyframes anima{
+    0%{opacity: 0;}
+    25%{opacity: 1;}
+    100%{opacity: 0.5;}
+
+}
+
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+menu {
+    list-style: none;
+    background-color:#280037bd;
+    width: 70px; 
+    height: 700px;
+    padding: 30px 0; 
+    border-radius: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;      
+    justify-content: center;   
+    gap: 30px;
+    margin-left: 7%; 
+    border: 1px solid #672997;
+    box-shadow: 0px 10px 30px 0px #480069;
+    position: fixed;
+    top: 10%;
+    
+}
+ menu img, menu li {
+        width: 60px;
+                
+    }
+@media (max-width: 768px) {
+    menu {
+        width: max-content;  
+        padding: 15px 8px;   
+        gap: 15px;           
+        margin-left: 6%;    
+        top: 15px;           
+    }
+    menu img, menu li {
+        width: 30px;          
+    }
+
+}
+
+.pag1{
+    display: flex;
+    padding: 15%;
+    background-image:linear-gradient(-60deg,#380847,#050405);
+    height: 100vh;
+   
+}
+main div{
+    margin-left: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+        img{
+       width: clamp(180px, 30vw, 300px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    }
+}
+h1{
+    font-family: "Intel One Mono", monospace;
+    font-size: 40px;
+    color: #38BDF8;
+    text-shadow: 0 0 10px rgba(60, 255, 125, 0.671);
+
+}
+h2{
+    color: rgba(190, 230, 49, 0.781);
+}
+h4{
+    color: wheat;
+    padding: 10px;
+}
+
+/*     pagina2     */
+
+.pag2{
+ background-image:linear-gradient(-120deg,#380847,#050405);
+ height: 100vh;
+ display: flex;
+ padding: 6%;
+
+}
+.box{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: 55%;
+    margin-right: 5%;
+    margin-top: 8%;
+    margin-bottom: 4%;
+    border: solid 1px #d194ff75;
+box-shadow: 0px 0px 10px 0px #480069;
+height: 70%;
+animation: anima 1s linear;
+animation-timeline: view();
+text-align: center;
+    img{
+        width: 100%;
+        padding: 7px;
+    }
+    
+}
+
+span{
+    border: solid 1px #d194ff88;
+    height: max-content;
+
+
+}
+h4{
+    font-size: 20px;
+}
+#animaçao{
+    animation: anima 4s linear;
+animation-timeline: view();
+}
+
+/*     pagina 3     */
+
+.pag3{
+    height: 100vh;
+    background-image:linear-gradient(-60deg,#380847,#050405);
+    text-align: center;
+}
+#color{
+    background-color:#35014dc0;
+}
+.fotPrincipal{
+    width: 20%
+}
+
+
