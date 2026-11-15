@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matheus Almeida | Desenvolvedor de software</title>
+  <meta name="description" content="Portfólio de Matheus Almeida, estudante de informática e desenvolvedor de software." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet" />
+  <!-- Aplica o tema salvo antes de a página aparecer (evita piscar) -->
+  <script>
+    (function () {
+      var tema;
+      try { tema = localStorage.getItem("tema-portfolio"); } catch (e) {}
+      if (!tema) tema = window.matchMedia("(prefers-color-scheme: light)").matches ? "claro" : "escuro";
+      document.documentElement.dataset.tema = tema;
+    })();
+  </script>
+  <link rel="stylesheet" href="estilos.css" />
+  <!-- Biblioteca de tradução (i18next). Se não carregar, o site continua funcionando em português. -->
+  <script src="https://cdn.jsdelivr.net/npm/i18next@23.11.5/dist/umd/i18next.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <!-- Tela de carregamento -->
+  <div id="pre-carregamento" aria-hidden="true">
+    <span id="contador">00</span>
+  </div>
+
+  <a href="#inicio" class="pular-conteudo" data-i18n="pular.conteudo">Ir para o conteúdo</a>
+
+  <div id="barra-progresso"></div>
+  <div id="cursor-brilho" aria-hidden="true"></div>
+
+  <!-- Cabeçalho flutuante -->
+  <header id="cabecalho-topo">
+    <a href="#inicio" id="logo-topo" aria-label="Matheus Almeida, início">MA<span>.</span></a>
+
+    <nav id="navegacao-pilula" aria-label="Navegação principal" data-i18n-attr="aria-label:nav.aria">
+      <span id="destaque-pilula" aria-hidden="true"></span>
+      <a href="#inicio" class="link-pilula" data-i18n="nav.inicio">Início</a>
+      <a href="#sobre" class="link-pilula" data-i18n="nav.sobre">Sobre mim</a>
+      <a href="#habilidades" class="link-pilula" data-i18n="nav.habilidades">Habilidades</a>
+      <a href="#projetos" class="link-pilula" data-i18n="nav.projetos">Projetos</a>
+      <a href="#contato" class="link-pilula" data-i18n="nav.contato">Contato</a>
+    </nav>
+
+    <button id="botao-tema" class="botao-tema" type="button" aria-label="Alternar tema claro e escuro" data-i18n-attr="aria-label:tema.aria"></button>
+
+    <div id="seletor-idioma" role="group" aria-label="Idioma" data-i18n-attr="aria-label:idioma.aria">
+      <button class="botao-idioma" data-idioma="pt" aria-pressed="true">PT</button>
+      <button class="botao-idioma" data-idioma="en" aria-pressed="false">EN</button>
+      <button class="botao-idioma" data-idioma="es" aria-pressed="false">ES</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. INÍCIO -->
+    <section id="inicio" class="secao-inicio">
+      <div class="fundo-inicio" aria-hidden="true">
+        <div class="grade-fundo"></div>
+        <span class="bolha-luz bolha-1"></span>
+        <span class="bolha-luz bolha-2"></span>
+      </div>
+
+      <div class="conteudo-inicio">
+        <p class="selo-status entrada-hero" style="--atraso: .2s">
+          <span class="ponto-pulsante" aria-hidden="true"></span>
+          <span data-i18n="hero.status">Aberto a novas oportunidades</span>
+        </p>
+
+        <h1 id="titulo-hero">
+          <span class="linha-titulo entrada-hero" style="--atraso: .4s" data-i18n="hero.ola">Olá, eu sou</span>
+          <span class="nome-hero entrada-hero" id="nome-hero" style="--atraso: .55s">Matheus Almeida</span>
+        </h1>
+
+        <figure id="foto-hero" class="entrada-hero" style="--atraso: .5s">
+          <img data-imagem src="imagens/hero-corpo.jpg" alt="Matheus Almeida posando em uma varanda com prédios ao fundo" />
+        </figure>
+        <aside id="cartao-hero" class="entrada-hero" style="--atraso: 1.2s" aria-label="Resumo">
+            <div class="avatar-hero"><span class="iniciais">MA</span></div>
+            <div class="cartao-hero-texto">
+              <strong>Matheus Almeida</strong>
+              <span data-i18n="hero.cartao.formacao">Técnico em Informática</span>
+              <small data-i18n="hero.cartao.local">COTEMIG · Em formação</small>
+            </div>
+          </aside>
+        <p class="cargo-hero entrada-hero" style="--atraso: .75s" data-i18n="hero.cargo">Estudante de T.I</p>
+        <p class="frase-hero entrada-hero" style="--atraso: .9s" data-i18n="hero.frase">Transformo curiosidade em código e ideias em experiências digitais.</p>
+
+        <div class="acoes-hero entrada-hero" style="--atraso: 1.05s">
+          <a href="#projetos" class="botao-magnetico botao-principal" data-i18n="hero.btn1">Ver projetos</a>
+          <a href="#contato" class="botao-magnetico botao-vazado" data-i18n="hero.btn2">Falar comigo</a>
+        </div>
+      </div>
+
+
+      <div class="faixa-marquee" aria-hidden="true">
+        <div class="trilho-marquee">
+          <div class="grupo-marquee">
+            <span data-i18n="marquee.1">Aprendendo</span><span>✦</span>
+            <span data-i18n="marquee.2">Criando</span><span>✦</span>
+            <span data-i18n="marquee.3">Evoluindo</span><span>✦</span>
+            <span>HTML</span><span>✦</span>
+            <span>CSS</span><span>✦</span>
+            <span>JavaScript</span><span>✦</span>
+            <span>C#</span><span>✦</span>
+            <span>MySQL</span><span>✦</span>
+          </div>
+          <div class="grupo-marquee">
+            <span data-i18n="marquee.1">Aprendendo</span><span>✦</span>
+            <span data-i18n="marquee.2">Criando</span><span>✦</span>
+            <span data-i18n="marquee.3">Evoluindo</span><span>✦</span>
+            <span>HTML</span><span>✦</span>
+            <span>CSS</span><span>✦</span>
+            <span>JavaScript</span><span>✦</span>
+            <span>C#</span><span>✦</span>
+            <span>MySQL</span><span>✦</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SOBRE -->
+    <section id="sobre" class="secao" aria-labelledby="titulo-sobre">
+      <p class="numero-secao revelar"><span>01 —</span> <span data-i18n="sobre.rotulo">Sobre mim</span></p>
+      <h2 id="titulo-sobre" class="titulo-secao revelar" data-i18n-html="sobre.titulo">Curiosidade que se <em>transforma</em> em código.</h2>
+
+      <div class="grade-sobre">
+        <div class="texto-sobre">
+          <figure class="foto-sobre revelar" data-moldura>
+            <img data-imagem src="imagens/sobre-retrato.jpg" alt="Matheus Almeida tirando uma selfie em um elevador" loading="lazy" />
+          </figure>
+          <p class="revelar revelar-esquerda" data-i18n-html="sobre.p1">Sou estudante do ensino médio técnico em informática no <strong>Colégio COTEMIG</strong> e encontrei no desenvolvimento de software uma forma de unir criatividade, lógica e vontade de aprender.</p>
+          <p class="revelar revelar-esquerda" style="--atraso: .1s" data-i18n="sobre.p2">Minha jornada começou com curiosidade sobre como os sites funcionam. Desde então, exploro o desenvolvimento web, crio projetos pessoais e aprimoro minhas habilidades na prática.</p>
+          <p class="revelar revelar-esquerda" style="--atraso: .2s" data-i18n="sobre.p3">Estou em busca da minha primeira oportunidade profissional para contribuir, aprender com outras pessoas e transformar boas ideias em soluções reais.</p>
+
+          <div class="estatisticas">
+            <div class="estatistica revelar revelar-zoom" data-acao="contar" style="--atraso: .1s">
+              <span class="numero-estatistica"><span data-contador="3">0</span>+</span>
+              <span class="rotulo-estatistica" data-i18n="sobre.stat1">Projetos práticos</span>
+            </div>
+            <div class="estatistica revelar revelar-zoom" data-acao="contar" style="--atraso: .25s">
+              <span class="numero-estatistica"><span data-contador="3">0</span></span>
+              <span class="rotulo-estatistica" data-i18n="sobre.stat2">Certificados Cisco</span>
+            </div>
+            <div class="estatistica revelar revelar-zoom" data-acao="contar" style="--atraso: .4s">
+              <span class="numero-estatistica"><span data-contador="6">0</span></span>
+              <span class="rotulo-estatistica" data-i18n="sobre.stat3">Tecnologias estudadas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="terminal revelar revelar-direita" data-acao="digitar" aria-label="Resumo em formato de terminal">
+          <div class="barra-terminal" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="corpo-terminal">
+            <p class="linha-comando linha-digitada">$ whoami</p>
+            <p class="linha-saida linha-digitada">&gt; matheus-almeida</p>
+            <p class="linha-comando linha-digitada">$ cat formacao.txt</p>
+            <p class="linha-saida linha-digitada" data-i18n="terminal.formacao">&gt; Técnico em Informática · COTEMIG</p>
+            <p class="linha-comando linha-digitada">$ cat status.txt</p>
+            <p class="linha-saida linha-digitada" data-i18n="terminal.status">&gt; Em busca da primeira oportunidade</p>
+            <p class="linha-comando linha-digitada">$ echo $OBJETIVO</p>
+            <p class="linha-saida linha-digitada" data-i18n="terminal.objetivo">&gt; Aprender, contribuir e criar soluções reais</p>
+            <span class="cursor-terminal" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. HABILIDADES -->
+    <section id="habilidades" class="secao" aria-labelledby="titulo-habilidades">
+      <p class="numero-secao revelar"><span>02 —</span> <span data-i18n="habilidades.rotulo">Habilidades</span></p>
+      <h2 id="titulo-habilidades" class="titulo-secao revelar" data-i18n-html="habilidades.titulo">Minha <em>caixa de</em> ferramentas.</h2>
+      <p class="subtitulo-secao revelar" data-i18n="habilidades.sub">Tecnologias que fazem parte dos meus projetos e do meu aprendizado.</p>
+
+      <div class="grade-habilidades">
+        <div class="revelar" style="--atraso: 0s">
+          <article class="cartao-tilt cartao-skill">
+            <div class="icone-skill" aria-hidden="true">&lt;/&gt;</div>
+            <h3>HTML</h3>
+            <p class="descricao-skill" data-i18n="skill.html.desc">Estrutura semântica e organização de páginas web.</p>
+            <div class="linha-nivel"><span data-i18n="nivel.intermediario">Intermediário</span><span>70%</span></div>
+            <div class="barra-nivel" role="img" aria-label="HTML, nível intermediário"><div class="preenchimento" style="--nivel: 70%"></div></div>
+          </article>
+        </div>
+
+        <div class="revelar" style="--atraso: .1s">
+          <article class="cartao-tilt cartao-skill">
+            <div class="icone-skill" aria-hidden="true">{ }</div>
+            <h3>CSS</h3>
+            <p class="descricao-skill" data-i18n="skill.css.desc">Layouts, estilos e interfaces para diferentes telas.</p>
+            <div class="linha-nivel"><span data-i18n="nivel.intermediario">Intermediário</span><span>65%</span></div>
+            <div class="barra-nivel" role="img" aria-label="CSS, nível intermediário"><div class="preenchimento" style="--nivel: 65%"></div></div>
+          </article>
+        </div>
+
+        <div class="revelar" style="--atraso: .2s">
+          <article class="cartao-tilt cartao-skill">
+            <div class="icone-skill" aria-hidden="true">JS</div>
+            <h3>JavaScript</h3>
+            <p class="descricao-skill" data-i18n="skill.js.desc">Lógica e interações para a web (em aprendizado).</p>
+            <div class="linha-nivel"><span data-i18n="nivel.iniciante">Iniciante</span><span>35%</span></div>
+            <div class="barra-nivel" role="img" aria-label="JavaScript, nível iniciante"><div class="preenchimento" style="--nivel: 35%"></div></div>
+          </article>
+        </div>
+
+        <div class="revelar" style="--atraso: .3s">
+          <article class="cartao-tilt cartao-skill">
+            <div class="icone-skill" aria-hidden="true">C#</div>
+            <h3 data-i18n="skill.csharp.nome">Lógica em C#</h3>
+            <p class="descricao-skill" data-i18n="skill.csharp.desc">Fundamentos de lógica de programação com C#.</p>
+            <div class="linha-nivel"><span data-i18n="nivel.basicoIntermediario">Básico / Intermediário</span><span>50%</span></div>
+            <div class="barra-nivel" role="img" aria-label="Lógica em C#, nível básico a intermediário"><div class="preenchimento" style="--nivel: 50%"></div></div>
+          </article>
+        </div>
+
+        <div class="revelar" style="--atraso: .4s">
+          <article class="cartao-tilt cartao-skill">
+            <div class="icone-skill" aria-hidden="true">SQL</div>
+            <h3>MySQL</h3>
+            <p class="descricao-skill" data-i18n="skill.mysql.desc">Conhecimentos iniciais em banco de dados MySQL.</p>
+            <div class="linha-nivel"><span data-i18n="nivel.basico">Básico</span><span>30%</span></div>
+            <div class="barra-nivel" role="img" aria-label="MySQL, nível básico"><div class="preenchimento" style="--nivel: 30%"></div></div>
+          </article>
+        </div>
+
+        <div class="revelar" style="--atraso: .5s">
+          <article class="cartao-tilt cartao-skill">
+            <div class="icone-skill" aria-hidden="true">OS</div>
+            <h3>Windows &amp; Linux</h3>
+            <p class="descricao-skill" data-i18n="skill.so.desc">Conhecimentos básicos em sistemas operacionais.</p>
+            <div class="linha-nivel"><span data-i18n="nivel.basico">Básico</span><span>35%</span></div>
+            <div class="barra-nivel" role="img" aria-label="Windows e Linux, nível básico"><div class="preenchimento" style="--nivel: 35%"></div></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="bloco-outros">
+        <div class="revelar">
+          <h3 class="subtitulo-bloco" data-i18n="outros.titulo">Outros conhecimentos</h3>
+          <div class="chips">
+            <span class="chip" data-i18n="chip.google">Ferramentas do Google</span>
+            <span class="chip">Office 365</span>
+            <span class="chip" data-i18n="chip.ingles">Inglês · Básico/Intermediário</span>
+            <span class="chip" data-i18n="chip.montagem">Montagem de computadores</span>
+            <span class="chip" data-i18n="chip.robotica">Robótica</span>
+          </div>
+        </div>
+
+        <div class="revelar" style="--atraso: .15s">
+          <h3 class="subtitulo-bloco" data-i18n="cursos.titulo">Cursos e certificados</h3>
+          <ul class="lista-certificados">
+            <li><span data-i18n="cert.hardware">Fundamentos do Hardware do Computador</span><small><span data-i18n="cert.label">Certificado</span> · Cisco</small></li>
+            <li><span data-i18n="cert.ciber">Introdução à Cibersegurança</span><small><span data-i18n="cert.label">Certificado</span> · Cisco</small></li>
+            <li><span data-i18n="cert.ia">Introdução à IA moderna</span><small><span data-i18n="cert.label">Certificado</span> · Cisco</small></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PROJETOS -->
+    <section id="projetos" class="secao" aria-labelledby="titulo-projetos">
+      <p class="numero-secao revelar"><span>03 —</span> <span data-i18n="projetos.rotulo">Projetos</span></p>
+      <h2 id="titulo-projetos" class="titulo-secao revelar" data-i18n-html="projetos.titulo">Do aprendizado à <em>prática.</em></h2>
+      <p class="subtitulo-secao revelar" data-i18n="projetos.sub">Uma seleção do que venho construindo.</p>
+
+      <div class="filtros-projeto revelar" role="group" aria-label="Filtrar projetos">
+        <button class="filtro-projeto" data-filtro="todos" aria-pressed="true" data-i18n="filtro.todos">Todos</button>
+        <button class="filtro-projeto" data-filtro="sites" aria-pressed="false" data-i18n="filtro.sites">Sites</button>
+        <button class="filtro-projeto" data-filtro="estudos" aria-pressed="false" data-i18n="filtro.estudos">Estudos</button>
+      </div>
+
+      <div class="grade-projetos">
+        <div class="revelar item-projeto" data-categoria="sites" style="--atraso: 0s">
+          <article class="cartao-tilt cartao-projeto">
+            <div class="capa-projeto" style="--cor-a: #ff4f8b; --cor-b: #8b5cf6;">
+              <img data-imagem class="imagem-projeto" src="imagens/rooftop.png" alt="Captura de tela do Rooftop Restaurant" loading="lazy" />
+              <span class="inicial-capa" aria-hidden="true">R</span>
+            </div>
+            <div class="corpo-projeto">
+              <div class="etiquetas"><span class="etiqueta">HTML</span><span class="etiqueta" data-i18n="tag.site">Site</span></div>
+              <h3>Rooftop Restaurant</h3>
+              <p data-i18n="projeto.rooftop">Uma experiência visual para um restaurante, com apresentação, cardápio e galeria de imagens.</p>
+              <a class="link-projeto" href="https://github.com/almeida-mth" target="_blank" rel="noopener noreferrer"><span data-i18n="projeto.codigo">Ver código</span> <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="revelar item-projeto" data-categoria="sites" style="--atraso: .12s">
+          <article class="cartao-tilt cartao-projeto">
+            <div class="capa-projeto" style="--cor-a: #c8ff3d; --cor-b: #0f766e;">
+              <img data-imagem class="imagem-projeto" src="imagens/louie.png" alt="Captura de tela do Louie Photography" loading="lazy" />
+              <span class="inicial-capa" aria-hidden="true">L</span>
+            </div>
+            <div class="corpo-projeto">
+              <div class="etiquetas"><span class="etiqueta">HTML</span><span class="etiqueta" data-i18n="tag.interface">Estudo de interface</span></div>
+              <h3>Louie Photography</h3>
+              <p data-i18n="projeto.louie">Reprodução de um portfólio de fotografia, explorando composição, tipografia e organização visual.</p>
+              <a class="link-projeto" href="https://github.com/almeida-mth" target="_blank" rel="noopener noreferrer"><span data-i18n="projeto.codigo">Ver código</span> <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="revelar item-projeto" data-categoria="estudos" style="--atraso: .24s">
+          <article class="cartao-tilt cartao-projeto">
+            <div class="capa-projeto" style="--cor-a: #f59e0b; --cor-b: #ff4f8b;">
+              <img data-imagem class="imagem-projeto" src="imagens/tabela.png" alt="Captura de tela da Tabela Periódica" loading="lazy" />
+              <span class="inicial-capa" aria-hidden="true">T</span>
+            </div>
+            <div class="corpo-projeto">
+              <div class="etiquetas"><span class="etiqueta">HTML</span><span class="etiqueta" data-i18n="tag.educacional">Projeto educacional</span></div>
+              <h3>Tabela Periódica</h3>
+              <p data-i18n="projeto.tabela">Uma tabela periódica construída para praticar a estruturação de dados e a estilização com CSS.</p>
+              <a class="link-projeto" href="https://github.com/almeida-mth" target="_blank" rel="noopener noreferrer"><span data-i18n="projeto.codigo">Ver código</span> <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="mais-github revelar">
+        <a class="botao-magnetico botao-vazado" href="https://github.com/almeida-mth" target="_blank" rel="noopener noreferrer" data-i18n="projetos.github">Mais no GitHub</a>
+      </div>
+    </section>
+
+    <!-- 5. CONTATO -->
+    <section id="contato" class="secao" aria-labelledby="titulo-contato">
+      <p class="numero-secao revelar"><span>04 —</span> <span data-i18n="contato.rotulo">Contato</span></p>
+      <div class="grade-contato">
+        <div>
+          <h2 id="titulo-contato" class="titulo-secao revelar" data-i18n-html="contato.titulo">Vamos criar algo <em>juntos?</em></h2>
+          <p class="convite-contato revelar" data-i18n="contato.convite">Tem um projeto, uma oportunidade ou quer trocar uma ideia sobre tecnologia? Me chame.</p>
+          <a class="botao-magnetico botao-principal revelar" href="https://github.com/almeida-mth" target="_blank" rel="noopener noreferrer" data-i18n="contato.github">Veja meu GitHub</a>
+          <p class="situacao-contato revelar" data-i18n="contato.disponivel">Aberto a aprender, colaborar e criar.</p>
+        </div>
+
+        <form id="formulario-contato" class="formulario-contato revelar revelar-direita" novalidate>
+          <div class="linha-formulario">
+            <div class="campo">
+              <label for="campo-nome" data-i18n="form.nome">Seu nome</label>
+              <input id="campo-nome" name="nome" type="text" autocomplete="name" data-i18n-attr="placeholder:form.nomePh" placeholder="Como você se chama?" aria-invalid="false" />
+            </div>
+            <div class="campo">
+              <label for="campo-email" data-i18n="form.email">Seu e-mail</label>
+              <input id="campo-email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" aria-invalid="false" />
+            </div>
+          </div>
+          <div class="campo">
+            <label for="campo-mensagem" data-i18n="form.mensagem">Sua mensagem</label>
+            <textarea id="campo-mensagem" name="mensagem" rows="5" data-i18n-attr="placeholder:form.mensagemPh" placeholder="Conte sobre sua ideia ou oportunidade..." aria-invalid="false"></textarea>
+          </div>
+          <button class="botao-magnetico botao-principal botao-enviar" type="submit" data-i18n="form.enviar">Enviar mensagem</button>
+          <p class="nota-formulario" data-i18n="form.nota">O envio por e-mail ainda não está configurado.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p data-i18n="footer.texto">© 2026 Matheus Almeida. Feito com curiosidade e café.</p>
+    <a href="#inicio" data-i18n="footer.voltar">Voltar ao topo</a>
+  </footer>
+</body>
+</html>
